@@ -51,7 +51,8 @@ Market allows you to draw a card.
 
 The better cards you get the better chain reactions you build while playing your hand. 
 
+Once you have a pile of money you can start working on buying your proviences which cost 8 points.
 
+The game ends when you depleat 3 of the decks of cards so all the feastival, cellars and libraries have gone. Or you have depleated the 6 point deck.
 
-
-
+Once that happens everyone counts their victory points. Player with the most vistory points wins the game. 
