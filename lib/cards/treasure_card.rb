@@ -4,9 +4,9 @@ class TreasureCard < CardBase
 	attr_accessor :gold
 
 	def initialize args
-		super args
-		@type = :treasure
 		@gold = 0
+		@type = :treasure
+		super args
 	end
 
 	def self.copper_coin

@@ -4,79 +4,63 @@ describe Store, "when created with 4 players" do
 	let(:store) { Store.new(4) }
 
 	it "should contain 53 Copper Coins" do
-		count_of_cards_with_name('Copper Coin').should == 53
+		store.copper_coin.count.should == 53
 	end
 	
 	it "should contain 40 Silver Coins" do
-		count_of_cards_with_name('Silver Coin').should == 40
+		store.silver_coin.count.should == 40
 	end
 
 	it "should contain 30 Gold Coins" do
-		count_of_cards_with_name('Gold Coin').should == 30
+		store.gold_coin.count.should == 30
 	end
 
-	it "should contain 123 treasure cards" do
-		count_of_cards_with_type(:treasure).should == 123
-	end
-	
 	it "should contain 12 estate cards" do
-		count_of_cards_with_name('Estate').should == 12
+		store.estate.count.should == 12
 	end
 	
 	it "should contain 12 duchy cards" do
-		count_of_cards_with_name('Duchy').should == 12
+		store.duchy.count.should == 12
 	end
 	
 	it "should contain 12 province cards" do
-		count_of_cards_with_name('Province').should == 12
-	end
-
-	it "should contain 36 victory cards" do
-		count_of_cards_with_type(:victory).should == 36
+		store.province.count.should == 12
 	end
 
 	it "should contain 10 cellar cards" do
-		count_of_cards_with_name('Cellar').should == 10
+		store.cellar.count.should == 10
 	end
 
 	it "should contain 10 market cards" do
-		count_of_cards_with_name('Market').should == 10
+		store.market.count.should == 10
 	end
 
 	it "should contain 10 militia cards" do
-		count_of_cards_with_name('Militia').should == 10
+		store.militia.count.should == 10
 	end
 
 	it "should contain 10 moat cards" do
-		count_of_cards_with_name('Moat').should == 10
+		store.moat.count.should == 10
 	end
 
 	it "should contain 10 remodel cards" do
-		count_of_cards_with_name('Remodel').should == 10
+		store.remodel.count.should == 10
 	end
 
 	it "should contain 10 smithy cards" do
-		count_of_cards_with_name('Smithy').should == 10
+		store.smithy.count.should == 10
 	end
 
 	it "should contain 10 village cards" do
-		count_of_cards_with_name('Village').should == 10
+		store.village.count.should == 10
 	end
 
 	it "should contain 10 woodcutter cards" do
-		count_of_cards_with_name('Woodcutter').should == 10
+		store.woodcutter.count.should == 10
 	end
 
 	it "should contain 10 workshop cards" do
-		count_of_cards_with_name('Workshop').should == 10
-	end
-
-	it "should contain 90 action cards" do
-		count_of_cards_with_type(:action).should == 90
-	end
-
-	it "should contain 249 cards" do
-		store.cards.count.should == 249
+		store.workshop.count.should == 10
 	end
 	
 end
@@ -85,14 +69,33 @@ describe Store, "when created with 2 players" do
 	let(:store) { Store.new(2) }
 
 	it "should contain only 8 province cards" do
-		count_of_cards_with_name('Province').should == 8
+		store.province.count.should == 8
 	end
 end
 
-def count_of_cards_with_name(name)
-	store.cards.select { |c| c.name == name }.count
-end
+describe Store, "when dealing initial deck" do
+	let(:store) { Store.new(2) }
+	let(:deck) { store.deal_deck }
 
-def count_of_cards_with_type(type)
-	store.cards.select { |c| c.type == type }.count
+	it "should deal 10 cards in total" do
+		deck.count.should == 10	
+	end
+
+	it "should deal 7 copper coin cards" do
+		deck.select { |c| c.name == TreasureCard.copper_coin.name }.count.should == 7
+	end
+	
+	it "should deal 3 estate cards" do
+		deck.select { |c| c.name == VictoryCard.estate.name }.count.should == 3
+	end
+
+	it "should reduce the copper coins by 7" do
+		store.deal_deck
+		store.copper_coin.count.should == 46
+	end
+	
+	it "should reduce the estate coins by 3" do
+		store.deal_deck
+		store.estate.count.should == 9 
+	end
 end
