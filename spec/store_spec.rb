@@ -71,6 +71,10 @@ describe Store, "when created with 4 players" do
 		count_of_cards_with_name('Workshop').should == 10
 	end
 
+	it "should contain 90 action cards" do
+		count_of_cards_with_type(:action).should == 90
+	end
+
 	it "should contain 249 cards" do
 		store.cards.count.should == 249
 	end
