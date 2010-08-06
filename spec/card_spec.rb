@@ -1,7 +1,7 @@
 require 'cards/treasure_card.rb'
 
 describe TreasureCard, "copper coin" do
-	subject { TreasureCard.copper_coin }
+	subject { CardFactory.copper_coin }
 
 	its(:type) { should ==  :treasure }
 	its(:name) { should == "Copper Coin" }
@@ -10,7 +10,7 @@ describe TreasureCard, "copper coin" do
 end
 
 describe TreasureCard, "silver coin" do
-	subject { TreasureCard.silver_coin }
+	subject { CardFactory.silver_coin }
 
 	its(:type) { should ==  :treasure }
 	its(:name) { should == "Silver Coin" }
@@ -19,7 +19,7 @@ describe TreasureCard, "silver coin" do
 end
 
 describe TreasureCard, "gold coin" do
-	subject { TreasureCard.gold_coin }
+	subject { CardFactory.gold_coin }
 
 	its(:type) { should ==  :treasure }
 	its(:name) { should == "Gold Coin" }
