@@ -1,0 +1,28 @@
+#!/usr/bin/env ruby
+$LOAD_PATH << './lib'
+require 'dominion'
+
+puts "would you like to play a game professor falken? How many players (2-4)?"
+players = gets.chomp
+
+game = Dominion.new(players.to_i)
+
+until game.ended?
+	puts "The store\n========="
+	game.store.cards.each do |name, deck|
+		card = deck.first
+		puts "#{deck.count} x #{card.name} \t\t Cost: #{card.cost}"
+	end
+
+	game.players.each_with_index do |player, index|
+		player.draw
+		puts "\nplayer #{index + 1} your hand contains:\n"
+		player.hand.each { |c| puts c }
+		puts "your move (b)uy or (a)ction?"
+
+		move = gets.chomp
+		puts "how about a game of tic tac toe?" 
+		#running out of time need to move on to next assignment
+		#hope this is enough to pass!
+	end
+end

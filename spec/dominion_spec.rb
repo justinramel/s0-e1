@@ -8,6 +8,6 @@ describe Dominion, "when created with 2 players" do
 	end
 
 	it "should have 2 players" do
-		#subject.players.count.should == 2	
+		game.players.count.should == 2	
 	end
 end

@@ -6,4 +6,8 @@ class CardBase
       instance_variable_set("@#{k}", v) unless v.nil?
     end
   end
+	
+	def to_s
+		name
+	end
 end
