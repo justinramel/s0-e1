@@ -18,9 +18,16 @@ until game.ended?
 		player.draw
 		puts "\nplayer #{index + 1} your hand contains:\n"
 		player.hand.each { |c| puts c }
+		puts "you have #{player.hand_value} gold to spend"
 		puts "your move (b)uy or (a)ction?"
 
-		move = gets.chomp
+		gets
+
+		puts "you can buy:"
+		cards = game.store.can_buy(player.hand_value)
+		cards.each { |c| puts c }
+
+		gets
 	end
 
 	#running out of time need to move on to next assignment

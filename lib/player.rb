@@ -18,8 +18,8 @@ class Player
 
 	def hand_value
 		value = 0
-		@hand.each do 	
-			value = value + 1
+		@hand.each do |card| 	
+			value = value + card.gold
 		end
 		value
 	end
