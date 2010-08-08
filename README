@@ -1,3 +1,18 @@
+== Running the game
+
+I have hacked together a script to exercise the Dominion model:
+
+	./play
+
+Have fun!	  
+
+== Running specs
+
+Rspec is required to run specs:
+
+	gem install rspec
+
+
 -- RMU ZERO SESSION | PROBLEM 1  
 -- Submissions due 12:00 UTC 8/8
 
