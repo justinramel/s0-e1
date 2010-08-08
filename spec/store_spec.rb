@@ -128,6 +128,27 @@ describe Store do
 		end
 	end
 
+	describe ".ended? when 3 piles are not empty" do
+		before(:each) do
+			53.times { store.take_card(:copper_coin) }
+			10.times { store.take_card(:smithy) }
+		end
+
+		it "should not be ended" do
+			store.should_not be_ended
+		end
+	end
+
+	describe ".ended? when 3 piles are empty" do
+		before(:each) do
+			53.times { store.take_card(:copper_coin) }
+			10.times { store.take_card(:smithy) }
+			10.times { store.take_card(:workshop) }
+		end
+		
+		it "should be ended" do
+			store.should be_ended	
+		end
+	end
 
 end
-

@@ -11,8 +11,6 @@ class Dominion
 	end
 
 	def ended?
-		# this guy should say to store do you have a 3 empty piles?
-		# for now game never ends!
-		false			
+		@store.ended?
 	end
 end

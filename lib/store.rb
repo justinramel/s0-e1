@@ -55,4 +55,16 @@ class Store
 		@cards[card].pop
 	end
 
+	def ended?
+		empty_piles = 0
+
+		@cards.each do |name, deck|
+			if (deck.count == 0) 
+				empty_piles = empty_piles + 1
+			end
+		end
+
+		empty_piles >= 3
+	end
+
 end
