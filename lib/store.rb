@@ -67,4 +67,16 @@ class Store
 		empty_piles >= 3
 	end
 
+	def can_buy(gold)
+		results = []
+		@cards.each do |name, pile|
+			affordable_cards = pile.select { |card| card.cost <= gold }
+
+			if affordable_cards.count > 0 
+				results << affordable_cards[0]
+			end	
+		end
+		results
+	end
+
 end
