@@ -15,4 +15,12 @@ class Player
 	def shuffle
 		@deck = @deck.sort_by{ rand }
 	end
+
+	def hand_value
+		value = 0
+		@hand.each do 	
+			value = value + 1
+		end
+		value
+	end
 end

@@ -105,7 +105,7 @@ describe Store do
 
 	describe "when picking a card and pile is not empty" do
 
-		before(:each) do
+		before do
 			@card = store.take_card(:copper_coin)
 		end
 		
@@ -119,7 +119,7 @@ describe Store do
 	end
 
 	describe "when picking a card and the pile is empty" do
-		before(:each) do
+		before do
 			53.times { store.take_card(:copper_coin) }
 		end
 
@@ -129,7 +129,7 @@ describe Store do
 	end
 
 	describe ".ended? when 3 piles are not empty" do
-		before(:each) do
+		before do
 			53.times { store.take_card(:copper_coin) }
 			10.times { store.take_card(:smithy) }
 		end
@@ -140,7 +140,7 @@ describe Store do
 	end
 
 	describe ".ended? when 3 piles are empty" do
-		before(:each) do
+		before do
 			53.times { store.take_card(:copper_coin) }
 			10.times { store.take_card(:smithy) }
 			10.times { store.take_card(:workshop) }

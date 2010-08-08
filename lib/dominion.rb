@@ -10,6 +10,11 @@ class Dominion
 		number_of_players.times { @players << Player.new(@store.deal_deck) }
 	end
 
+	def buy(player)
+		# take a player and get the value of their hand
+		# ask store what the player can afford to buy 
+	end
+
 	def ended?
 		@store.ended?
 	end
