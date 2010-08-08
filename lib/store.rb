@@ -48,4 +48,11 @@ class Store
 		deck
 	end
 
+	def take_card(card)
+		if (@cards[card].count == 0)
+			raise "no #{card} cards left"
+		end
+		@cards[card].pop
+	end
+
 end

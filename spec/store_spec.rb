@@ -99,3 +99,35 @@ describe Store, "when dealing initial deck" do
 		store.cards[:estate].count.should == 9 
 	end
 end
+
+describe Store do
+	let(:store) { Store.new(2) }
+
+	describe "when picking a card and pile is not empty" do
+
+		before(:each) do
+			@card = store.take_card(:copper_coin)
+		end
+		
+		it "should return a card" do
+			@card.should_not be_nil	
+		end
+
+		it "should reduce pile by one" do
+			store.cards[:copper_coin].count.should == 52	
+		end
+	end
+
+	describe "when picking a card and the pile is empty" do
+		before(:each) do
+			53.times { store.take_card(:copper_coin) }
+		end
+
+		it "should raise an error" do
+			lambda{ store.take_card(:copper_coin) }.should raise_error 	
+		end
+	end
+
+
+end
+
